@@ -8,6 +8,14 @@ load_dotenv()
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 LLM_MODEL = os.getenv("LLM_MODEL", "mistral") # >> gpt-oss:120b-cloud
 
+# Configuración de memoria (opcional)
+# MEMORY_TYPE puede ser: 'buffer' | 'window' | 'summary' | 'combined' | 'vector'
+MEMORY_TYPE = os.getenv("MEMORY_TYPE", "buffer")
+# Para 'window' puedes controlar cuántas interacciones mantener con MEMORY_K
+MEMORY_K = int(os.getenv("MEMORY_K", "5"))
+# Para memoria vectorial (si la usas) puedes definir un directorio de persistencia
+MEMORY_PERSIST_DIR = os.getenv("MEMORY_PERSIST_DIR", "")
+
 # Configuración de APIs
 SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
 
