@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 # Carga las variables de entorno desde el archivo .env
 load_dotenv()
@@ -24,3 +25,8 @@ if not SERPAPI_API_KEY:
 
 # Rutas del proyecto
 PROMPT_TEMPLATE_PATH = os.path.join("prompts", "agent_prompt.v2.txt")
+
+# Directorio por defecto para archivos locales buscables por el agente
+PROJECT_ROOT = Path(__file__).resolve().parent
+DATA_DIR = os.path.join(str(PROJECT_ROOT), "data", "local_files")
+

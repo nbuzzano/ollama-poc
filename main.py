@@ -1,10 +1,6 @@
 from guardrails.chain import build_guarded_chain
-
-# main.py
-
 from agent.agent_builder import create_agent_executor
 from config import MEMORY_TYPE, MEMORY_K, MEMORY_PERSIST_DIR
-
 
     
 def main():

@@ -1,0 +1,3 @@
+More notes in a nested folder about the agent's behavior.
+This file is nested to verify recursive search works.
+Contains the word agent several times: agent, agent.

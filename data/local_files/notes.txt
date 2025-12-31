@@ -1,0 +1,6 @@
+Project notes about the agent and local search tool.
+
+- The agent should be able to find this note using local_file_search.
+- Example: the agent will locate the word 'agent' here.
+
+Summary: local_file_search is useful for searching small text files.

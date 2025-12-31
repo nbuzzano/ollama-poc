@@ -36,7 +36,7 @@ def create_agent_executor():
     # Si necesitas JSON estructurado en el futuro, vuelve a cambiar `format='json'`
     # y proporciona un esquema explícito en este system message.
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "Eres un asistente de IA muy útil. Responde las preguntas del usuario en TEXTO PLANO solamente. No devuelvas JSON, diccionarios, ni marcas de código. Ofrece una respuesta concisa y legible."),
+        ("system", "Eres un asistente de IA muy útil y cuidadoso. Responde en TEXTO PLANO conciso y legible. Tienes acceso a las siguientes herramientas:\n- wikipedia_search(query): busca en Wikipedia para información enciclopédica.\n- google_search(query): busca en la web para noticias o información reciente.\n- local_file_search(query): busca dentro de los archivos locales del proyecto (limitado a DATA_DIR).\nReglas estrictas de uso de herramientas:\n1) Si la pregunta requiere información de archivos locales del proyecto, DEBES llamar a `local_file_search(query)` y usar su salida EXACTAMENTE (incluye rutas y fragmentos).\n2) NO propongas, recomiendes ni muestres comandos de shell o scripts para escanear el filesystem (por ejemplo `grep`, `find`, `xargs` o similares). Si un usuario pregunta por archivos locales, usa `local_file_search` en lugar de indicar comandos.\n3) Si la pregunta no requiere datos locales, evita llamar a `local_file_search` y usa otras herramientas apropiadas.\n4) No inventes rutas ni contenidos; si `local_file_search` no encuentra nada, responde que no hay coincidencias en DATA_DIR.\n5) No devuelvas JSON ni marcas de código en la respuesta final."),
         ("user", "{input}"),
         ("ai", "{agent_scratchpad}"),
     ])
